@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freud COTOMI | Créatif Digital & Stratège Narratif</title>
+    <meta name="description" content="Des mots qui captent. Des visuels qui marquent. Des idées qui restent. Freud COTOMI - Créateur d'identités narratives et visuelles.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        freudblue: '#0B2347',
+                        freudgold: '#D9A441',
+                        freudlight: '#FFC857'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        creative: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(11, 35, 71, 0.9), rgba(11, 35, 71, 0.95)), url('hero-bg.jpg') center/cover;
+        }
+        .profile-pic {
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.03);
+        }
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .logo-hover {
+            transition: filter 0.3s ease;
+        }
+        .logo-hover:hover {
+            filter: drop-shadow(0 0 8px rgba(217, 164, 65, 0.6));
+        }
+        .story-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+        }
+        .story-item:last-child {
+            border-bottom: none;
+        }
+        .prose {
+            line-height: 1.75;
+        }
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+        .highlight {
+            color: #D9A441;
+            font-weight: 600;
+        }
+        .contact-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(217, 164, 65, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(217, 164, 65, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(217, 164, 65, 0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="/Fr chic.png">
+                <img src="/Logo FreudLab.png" alt="FreudLab Logo" class="h-10 logo-hover">
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-10">
+                <a href="#about" class="font-medium hover:text-freudgold transition">À Propos</a>
+                <a href="#services" class="font-medium hover:text-freudgold transition">Services</a>
+                <a href="#portfolio" class="font-medium hover:text-freudgold transition">Portfolio</a>
+                <a href="#storytelling" class="font-medium hover:text-freudgold transition">Mes Rédacs</a>
+                <a href="#contact" class="font-medium hover:text-freudgold transition">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-freudblue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden fixed inset-0 bg-freudblue bg-opacity-95 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="container mx-auto px-6 py-10">
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold text-white">FREUD<span class="text-freudgold">C</span></a>
+                    <button id="closeMenuBtn" class="focus:outline-none">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <nav class="mt-16 flex flex-col space-y-8">
+                    <a href="#about" class="text-2xl text-white font-medium hover:text-freudgold transition">À Propos</a>
+                    <a href="#services" class="text-2xl text-white font-medium hover:text-freudgold transition">Services</a>
+                    <a href="#portfolio" class="text-2xl text-white font-medium hover:text-freudgold transition">Portfolio</a>
+                    <a href="#storytelling" class="text-2xl text-white font-medium hover:text-freudgold transition">Mes Rédacs</a>
+                    <a href="#contact" class="text-2xl text-white font-medium hover:text-freudgold transition">Contact</a>
+                </nav>
+                
+                <div class="mt-16 pt-8 border-t border-gray-600">
+                    <div class="flex space-x-6">
+                        <a href="https://www.facebook.com/freud.cotomi" target="_blank" class="text-white hover:text-freudgold transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/2290147745941?text=Bonjour%20Freud,%20je%20suis%20intéressé%20par%20vos%20services%20créatifs." target="_blank" class="text-white hover:text-freudgold transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 font-creative leading-tight">
+                Des mots qui captent.<br>Des visuels qui marquent.<br>Des idées qui restent.
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+                Je suis Freud COTOMI. Créatif <span class="highlight">digital</span>, stratège narratif et designer visuel.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#services" class="bg-freudgold hover:bg-freudlight text-freudblue font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Voir mes services
+                </a>
+                <a href="#contact" class="border-2 border-white hover:border-freudgold text-white hover:text-freudgold font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105 contact-pulse">
+                    Contact direct
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <!-- Photo de profil -->
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="/Fr chic.png" alt="Freud COTOMI" class="profile-pic w-64 h-64 object-cover">
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 font-creative">
+                        Une vision. Un style. Une obsession de l'impact.
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-freudblue flex items-center">
+                                <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                                Qui je suis
+                            </h3>
+                            <p class="text-gray-700">
+                                Créateur pluridisciplinaire à l'intersection du design et du récit. Mon approche fusionne rigueur stratégique et intuition créative pour forger des identités mémorables. Ni artiste pur, ni technicien froid, mais architecte de perceptions.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-freudblue flex items-center">
+                                <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                                Mon style d'écriture
+                            </h3>
+                            <p class="text-gray-700">
+                                Naturel mais ciselé. Humain mais impactant. Je cultive l'art de la phrase qui résonne, entre concision littéraire et efficacité marketing. Chaque mot est un choix stratégique, chaque texte une expérience sensorielle.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-freudblue flex items-center">
+                                <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                                Mon approche graphique
+                            </h3>
+                            <p class="text-gray-700">
+                                Sobre mais frappante. Minimaliste mais chargée de sens. Je conçois des identités visuelles où chaque élément - typographie, palette, composition - communique l'essence de la marque avec une clarté viscérale.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-freudblue flex items-center">
+                                <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                                Mes valeurs
+                            </h3>
+                            <p class="text-gray-700">
+                                <span class="font-semibold">Créativité radicale :</span> repousser les conventions sans sacrifier l'efficacité.<br>
+                                <span class="font-semibold">Authenticité :</span> des solutions sur mesure, jamais du prêt-à-penser.<br>
+                                <span class="font-semibold">Impact :</span> chaque projet doit créer un avant/après mesurable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-creative">
+                Ce que j'ai imaginé, ça se voit.
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Affiche 1 -->
+                <div class="portfolio-item bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="/Retis.jpg" alt="Projet FreudLab" class="w-full h-auto">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-freudblue">Campagne FreudLab</h3>
+                        <p class="text-gray-600 mb-4">Direction artistique complète - Design & Stratégie</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium bg-freudgold bg-opacity-20 text-freudblue py-1 px-3 rounded-full">
+                                +10% d'engagement
+                            </span>
+                            <a href="#" class="text-freudgold font-medium hover:underline">Voir le cas complet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Affiche 2 -->
+                <div class="portfolio-item bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="/Serie narrative.png" alt="Projet Narratif" class="w-full h-auto">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-freudblue">Série Narrative</h3>
+                        <p class="text-gray-600 mb-4">Storytelling viral - 12 épisodes</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium bg-freudgold bg-opacity-20 text-freudblue py-1 px-3 rounded-full">
+                                1406 de vues
+                            </span>
+                            <a href="#" class="text-freudgold font-medium hover:underline">Lire les extraits</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nouvelle Affiche 3 -->
+                <div class="portfolio-item bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="/Anthologie.png" alt="Projet Rédactionnel" class="w-full h-auto">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-freudblue">Anthologie Écrite</h3>
+                        <p class="text-gray-600 mb-4">Sélection de mes meilleurs textes</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium bg-freudgold bg-opacity-20 text-freudblue py-1 px-3 rounded-full">
+                                6 œuvres clés
+                            </span>
+                            <a href="#storytelling" class="text-freudgold font-medium hover:underline">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.facebook.com/profile.php?id=61574604995549" target="_blank" class="inline-flex items-center text-freudblue font-bold hover:text-freudgold transition">
+                    Voir plus sur FreudLab
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Storytelling -->
+    <section id="storytelling" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-creative">
+                Mes Rédactions
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- Rédaction 1 -->
+                <div class="story-item">
+                    <h3 class="text-2xl font-bold mb-4 text-freudblue">Pourquoi toujours Cotonou ?</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p>Attends, faut que je dise un truc…</p>
+                        <p>Tu sais ce que ça fait, d'ouvrir <span class="highlight">Facebook</span> un matin, de voir passer une <span class="highlight">masterclass GRATUITE</span> de <span class="highlight">Fritzel Adjaho</span>, un atelier de <span class="highlight">copywriting</span> avec <span class="highlight">Ornella Agnikpe</span>, ou une session de feu animée par <span class="highlight">Divin Setondji</span>… Et de lire juste en bas :</p>
+                        <p class="font-semibold">"Lieu : <span class="highlight">Cotonou</span>."</p>
+                        <p>Frérot… Ça pique un peu. Parce que tu sais que toi aussi, tu veux apprendre, évoluer, poser des questions, serrer des mains. Mais le seul truc qui te sépare du savoir…</p>
+                        <p>C'est la distance.</p>
+                        <p>Je suis à <span class="highlight">Lokossa</span>. Et franchement, j'aimerais vraiment participer à tout ça. Pas pour les selfies. Pas pour faire genre. Mais pour apprendre comme les autres. Pour comprendre les subtilités du <span class="highlight">digital</span>, du <span class="highlight">copywriting</span>, du <span class="highlight">personal branding</span>, de la <span class="highlight">création de contenu</span>… Directement des meilleurs.</p>
+                        <p>Et je sais que je ne suis pas seul.</p>
+                        <p>Ce post, ce n'est pas un reproche. C'est un appel. Et si on organisait ces mêmes sessions dans d'autres villes aussi ? <span class="highlight">Lokossa</span>. <span class="highlight">Bohicon</span>. <span class="highlight">Abomey</span>. Même une fois par an.</p>
+                        <p>Je vous promets : Vous allez réveiller des talents.</p>
+                        <p>Le <span class="highlight">digital</span> ne vit pas qu'à <span class="highlight">Cotonou</span>. Il vit partout où il y a un jeune motivé avec un vieux téléphone et une grande vision. Et c'est pour nous tous que j'écris ça aujourd'hui.</p>
+                        <p class="italic mt-4">__________<br>C'était Freud, le mec qui veut se faire une place dans le monde du <span class="highlight">digital</span> 💙<br>📌 Abonne-toi 😇.</p>
+                    </div>
+                </div>
+                
+                <!-- Rédaction 2 -->
+                <div class="story-item">
+                    <h3 class="text-2xl font-bold mb-4 text-freudblue">"Frérot, j'ai mis 12 pantalons en promo..."</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p>"Frérot, j'ai mis 12 pantalons en promo… mais c'est comme si j'avais jeté ça dans un puits."</p>
+                        <p>C'est ce qu'un gars m'a dit y'a pas longtemps. Il vend des habits en ligne.</p>
+                        <p>Il avait fait une affiche lui-même. Un fond noir. Des textes rouges. 12 styles de jeans serrés collés comme dans une partie de "Cherche Charlie". Et bien sûr... le logo ? Un t-shirt pixelisé, volé chez Google.</p>
+                        <p>Résultat ? Aucune vente. Même pas une question en commentaire. Personne n'a cru que c'était sérieux.</p>
+                        <p>Alors il m'a contacté. Et il m'a dit : "Je sais que mes habits sont beaux. Mais les gens fuient mon visuel comme si c'était du poisson avarié."</p>
+                        <p>J'ai rigolé un peu. Puis je l'ai aidé. Un vrai visuel propre. Aéré. Stylé. Avec un bon mockup. Des couleurs qui donnent envie de cliquer. Et une phrase qui accroche dès les 3 premières secondes.</p>
+                        <p>Le lendemain, il m'envoie une capture d'écran.</p>
+                        <ul class="list-disc pl-5">
+                            <li>3 ventes. 7 demandes en DM.</li>
+                            <li>Et une fille qui a demandé s'il livrait à <span class="highlight">Parakou</span>.</li>
+                        </ul>
+                        <p>Alors noté ceci, si ton visuel est flou, ton client aussi va l'être. Si ton design fait peur, ton panier va rester vide.</p>
+                        <p>Tu vends du tissu… pas des regrets. Alors présente ton produit comme il le mérite.</p>
+                        <p>Cette semaine, je fais -10 % sur toutes les créations graphiques pour boutiques de vêtements : Flyer, visuel promo, story pack, bannière boutique, logo, tout. C'est le moment de t'habiller… digitalement.</p>
+                        <p class="italic mt-4">____________________<br>C'était Freud, le mec qui veut se faire une place dans le monde du <span class="highlight">digital</span> 💙<br>📌 Abonne-toi.<br>Et surtout, envoie ce post à ton pote commerçant qui vend encore avec des affiches WhatsApp.</p>
+                    </div>
+                </div>
+                
+                <!-- Rédaction 3 -->
+                <div class="story-item">
+                    <h3 class="text-2xl font-bold mb-4 text-freudblue">Et si je me trouvais une go... copywriter ?</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p>Et si je me trouvais une go... <span class="highlight">copywriter</span> ?</p>
+                        <p>Ouais, ouais... Tu vas rire, mais faut que je te dise un truc.</p>
+                        <p>Avant, je passais mes journées sur <span class="highlight">Facebook</span> à faire... rien. Je scrollais. Je regardais les statuts. Je likais des trucs inutiles. Ma productivité ? Elle était partie faire un stage à <span class="highlight">Parakou</span>.</p>
+                        <p>Mais un jour... Je tombe sur un truc qui attire mon attention : le graphisme. Puis je découvre un autre mot bizarre : <span class="highlight">copywriting</span>.</p>
+                        <p>Et là… changement de vie. Je commence à lire les textes des pros. Des gens qui te racontent une histoire... et sans t'en rendre compte, tu es déjà en train de vouloir acheter un truc que tu ne voulais même pas. Genre magie.</p>
+                        <p>Parlons-en. La <span class="highlight">copygoate</span> elle-même : <span class="highlight">Ornella Agnikpe</span>. Quand elle écrit, même ton ex te manque. Ses histoires de ropéroya ? Ça te touche dans l'âme.</p>
+                        <p>Et puis… <span class="highlight">Jocelyne Hounton</span>, la grande sœur du copy naturel. <span class="highlight">Sagesse Kiatoko</span>, la plume qui tape plus fort que le SPF. <span class="highlight">Fritzel Adjaho</span>, le <span class="highlight">copygoat</span> qui vend sans forcer. <span class="highlight">Ange Semassa</span>, <span class="highlight">Vianney Tonon</span>, <span class="highlight">Donatien Sèmlinko</span>… etc. Même leurs statuts te donnent envie de réviser ta vie.</p>
+                        <p>Franchement, ces gens-là m'ont eu. Aujourd'hui, je suis accro aux posts de <span class="highlight">copywriters</span>. Ils écrivent ce que tu vis, sans que tu leur dises. Et moi j'adore les lire. Je like. Je commente. Je sauvegarde même.</p>
+                        <p>Mais là… Une idée me traverse l'esprit. Une idée dangereuse.</p>
+                        <p>Et si… je me trouvais une go <span class="highlight">copywriter</span> ?</p>
+                        <p>Tu tapes juste "Bb" Et puis elle te pond un texte de 250 mots, structuré, émotionnel, avec call-to-action à la fin.</p>
+                        <p>"Dis-moi ce que tu ressens en 3 bullets points, chéri."</p>
+                        <p>Frérot… Tu n'es plus en couple. Tu es dans un tunnel de conversion. Tu veux t'énerver, elle te calme avec un storytelling. Tu veux ghoster, elle te relance avec un e-mail bien segmenté.</p>
+                        <p>Oh là là… je veux goûter à ça moi aussi. Je veux manger l'amour. Version <span class="highlight">copywriting</span>.</p>
+                        <p>Et toi ? Tu en penses quoi ?</p>
+                        <p class="italic mt-4">____________________<br>C'était Freud, le mec qui veut se faire une place dans le monde du <span class="highlight">digital</span> 💙<br>📌 Abonne-toi pour ne rien rater.</p>
+                    </div>
+                </div>
+                
+                <!-- Rédaction 4 -->
+                <div class="story-item">
+                    <h3 class="text-2xl font-bold mb-4 text-freudblue">Quand ton téléphone te lâche en plein voyage</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p>Tu sais ce que ça fait… quand ton téléphone te lâche en plein voyage ?</p>
+                        <p>Oh mon frère, laisse-moi te raconter.</p>
+                        <p>Aujourd'hui, j'ai dû faire un petit déplacement. Un aller simple. 2 à 3 heures de route.</p>
+                        <p>Mais au retour… BAM. Le téléphone s'éteint. Batterie 0. Silence total.</p>
+                        <p>Même pas une musique. Même pas un message. Même pas l'heure.</p>
+                        <p>Et comme si ce n'était pas assez... La faim me tape. Pas une petite faim hein. Une vraie. Une qui rend philosophe.</p>
+                        <p>Je te jure, j'ai fini par compter les poteaux électriques un à un. Chaque panneau. Chaque caillou. Même les arbres me parlaient.</p>
+                        <p>Franchement, on sous-estime la compagnie d'un téléphone… jusqu'à ce qu'il nous abandonne.</p>
+                        <p>Et toi ? Ton téléphone t'a déjà trahi dans un moment critique ? Raconte-moi en commentaire, je veux rire un peu avec toi !</p>
+                        <p class="italic mt-4">____________________<br>C'était Freud, le mec qui veut se faire une place dans le monde du <span class="highlight">digital</span> 💙<br>📌 Abonne-toi 😇</p>
+                    </div>
+                </div>
+                
+                <!-- Rédaction 5 -->
+                <div class="story-item">
+                    <h3 class="text-2xl font-bold mb-4 text-freudblue">Tu veux te faire de l'argent en ligne ?</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p>Tu veux te faire de l'argent en ligne ?</p>
+                        <p>Alors tu dois lire ce que je vais te dire.</p>
+                        <p>Je m'appelle Freud Cotomi. Étudiant en première année de mécanique à <span class="highlight">Lokossa</span>. Mais surtout... un gars qui veut percer.</p>
+                        <p>Et tu sais quoi ? Je n'ai pas attendu qu'on me tende une chance. J'ai décidé d'en créer une.</p>
+                        <p>Au début de 2025, je suis tombé sur une publication <span class="highlight">Facebook</span>. Une rubrique de l'organe de presse de mon école : "Portrait du Week". On y parlait d'un élève professeur comme moi. Son nom : <span class="highlight">Randolphe KM</span>. Sa particularité ? -Il gagne de l'argent avec l'IA. Je répète : il gagne de l'argent… avec l'IA.</p>
+                        <p>Frérot... J'ai arrêté tout ce que je faisais. Je suis allé stalker son profil. Et j'ai vu des choses... propres. Nettes. Inspirantes.</p>
+                        <p>Mais ce n'est pas tout. Un soir, je me baladais sur le campus… Et par hasard, je le croise. En vrai. On discute un peu. Et la seule vraie question que je lui pose, c'est : "Comment on fait pour nettoyer l'arrière-plan d'une photo ?" (Oui, cette histoire, je te l'avais déjà racontée.)</p>
+                        <p>Quelques jours plus tard… Je rejoins son programme : Just For Créatist. Mais l'accès ? Tu dois d'abord investir dans "Le guide du pro : écrire avec l'IA."</p>
+                        <p>Et là... Ma vision du <span class="highlight">digital</span> a changé. Carrément.</p>
+                        <p>J'y ai appris à :</p>
+                        <ul class="list-disc pl-5">
+                            <li>Programmer des discussions avec l'IA</li>
+                            <li>Générer des contenus puissants</li>
+                            <li>Débloquer ma créativité visuelle</li>
+                            <li>Et fusionner le graphisme avec l'intelligence artificielle.</li>
+                        </ul>
+                        <p>Aujourd'hui ? Je n'utilise plus <span class="highlight">Facebook</span> pour me distraire. Je l'utilise pour construire. Pour apprendre. Pour créer. Pour inspirer. Et pour faire de l'argent, oui.</p>
+                        <p>Je veux me faire une place dans le monde du <span class="highlight">digital</span>. Pas copier les autres. Marquer ma voie.</p>
+                        <p>Et toi qui me lis… Tu veux apprendre à utiliser l'IA pour développer tes compétences ? Tu veux découvrir des outils, des techniques, des méthodes concrètes ?</p>
+                        <p>Alors tu as une raison de t'abonner à mon compte. Et si tu veux rejoindre le programme, viens m'écrire en DM. On en parle.</p>
+                        <p>VIRALIST JE SUIS.</p>
+                        <p class="italic mt-4">____________________<br>C'était Freud, le mec qui veut se faire une place dans le monde du <span class="highlight">digital</span> 💙<br>📌 Abonne-toi pour ne rien rater.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-freudblue text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-creative">
+                Parlons de votre prochain impact visuel
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                        Contact rapide
+                    </h3>
+                    <a href="https://wa.me/2290147745941?text=Bonjour%20Freud,%20je%20suis%20intéressé%20par%20vos%20services%20créatifs." 
+                       target="_blank"
+                       class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-full transition transform hover:scale-105 mb-4 contact-pulse">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        WhatsApp (Réponse rapide)
+                    </a>
+                    
+                    <a href="https://www.facebook.com/freud.cotomi" 
+                       target="_blank"
+                       class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-full transition transform hover:scale-105">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                        </svg>
+                        Facebook Messenger
+                    </a>
+                    
+                    <div class="mt-8 p-6 bg-freudblue border border-freudgold rounded-lg">
+                        <h4 class="text-lg font-bold mb-4 text-freudgold">📩 Ou envoyez-moi un email :</h4>
+                    cotomifreud20@gmail.com    <p class="cotomifreud20@gmail.com </p>
+                        <p class="text-sm opacity-80">(Réponse sous 24h maximum)</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <span class="w-8 h-0.5 bg-freudgold mr-4"></span>
+                        Disponibilités
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-freudgold mr-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-bold">Horaires de contact</h4>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-freudgold mr-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-bold">Appel téléphonique</h4>
+                                <p>Moov: 0199516298<p>
+                                <p>
+         MTN: 0142885677<p>
+                   <p>                Celtiis : 0147745941</p>
+                                <p class="text-sm opacity-80">(Disponible pour les projets complexes nécessitant une discussion approfondie)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-bold mb-4 text-freudgold">💡 Conseil professionnel :</h4>
+                        <p>Pour une réponse plus rapide, envoyez dès votre premier message :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>La nature de votre projet</li>
+                            <li>Vos objectifs principaux</li>
+                            <li>Vos délais estimés</li>
+                            <li>Votre budget approximatif</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-freudblue bg-opacity-90 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">Freud COTOMI
+                    <p class="mt-2 text-sm opacity-80">Créateur d'identités narratives et visuelles</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/freud.cotomi" target="_blank" class="text-white hover:text-freudgold transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/2290147745941?text=Bonjour%20Freud,%20je%20suis%20intéressé%20par%20vos%20services%20créatifs." target="_blank" class="text-white hover:text-freudgold transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-600 text-center text-sm opacity-80">
+                <p>© 2025 Freud COTOMI. Tous droits réservés.</p>
+                <p class="mt-2">Conçu avec passion et une obsession pour l'impact.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-x-full');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('-translate-x-full');
+                    
+                    // Scroll to target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
